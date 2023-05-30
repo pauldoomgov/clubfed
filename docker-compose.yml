@@ -1,0 +1,45 @@
+version: "3.0"
+services:
+  app:
+    build: .
+    volumes:
+      - ./clubfed:/clubfed
+    links:
+      - db
+    working_dir: /clubfed
+    entrypoint: python /clubfed/docker_entrypoint.py
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+    environment:
+      - PYTHONUNBUFFERED=yup
+      - DATABASE_URL=postgres://clubfed_user:clubfed_password@db/clubfed
+      - RUNNING_IN_DOCKER=yup
+      - DJANGO_SETTINGS_MODULE=clubfed.settings.dev
+      - ALLOWED_HOSTS=localhost,app
+    stdin_open: true
+    tty: true
+    ports:
+      - "8000:8000"
+    command: >
+      bash -c "python manage.py migrate &&
+      python manage.py runserver 0.0.0.0:8000"
+
+  db:
+    image: postgres:12.8
+    environment:
+      - POSTGRES_DB=clubfed
+      - POSTGRES_USER=clubfed_user
+      - POSTGRES_PASSWORD=clubfed_password
+
+  owasp:
+    image: owasp/zap2docker-weekly
+    command: zap-baseline.py -t http://app:8000 -c zap.conf -I -r zap_report.html
+    volumes:
+      - .:/zap/wrk/
+    links: ["app"]
+    profiles: ["owasp-scan"]
+
+
+  # gulp image goes here

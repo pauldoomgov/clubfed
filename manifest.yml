@@ -1,0 +1,11 @@
+---
+applications:
+- name: clubfed-((env))
+  buildpack: python_buildpack
+  instances: ((web_instances))
+  memory: ((web_memory))
+  env:
+    ALLOWED_HOSTS: .app.cloud.gov
+    DJANGO_SETTINGS_MODULE: clubfed.settings.prod
+  services:
+  - clubfed-rds-((env))
