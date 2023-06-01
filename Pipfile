@@ -12,6 +12,7 @@ gunicorn = {version = "*", extras = ["gevent"]}
 dj-database-url = "*"
 psycopg2-binary = "*"
 whitenoise = "*"
+requests = {file = "https://github.com/pauldoomgov/request/archive/main.tar.gz"}
 
 [dev-packages]
 wait4it = "*"
