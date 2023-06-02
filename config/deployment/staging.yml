@@ -1,3 +1,5 @@
 env: staging
 web_instances: 1
 web_memory: 256M
+services:                                                                                                                                                                          │ `3]{--ضKgyLVG{>,0̨̩̪+/$(k#'g
+  - clubfed-rds-staging
