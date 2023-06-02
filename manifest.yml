@@ -7,5 +7,6 @@ applications:
   env:
     ALLOWED_HOSTS: .app.cloud.gov
     DJANGO_SETTINGS_MODULE: clubfed.settings.prod
+    ENABLE_TELEMETRY: 1
   services:
   - clubfed-rds-((env))

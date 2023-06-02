@@ -1,0 +1,9 @@
+django
+django-csp
+django-debug-toolbar
+cfenv
+gunicorn[gevent]
+dj-database-url
+psycopg2-binary
+whitenoise
+https://github.com/pauldoomgov/wrequests/archive/main.tar.gz
