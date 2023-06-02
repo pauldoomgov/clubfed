@@ -165,3 +165,6 @@ clubfed/clubfed/static
 
 # Terraform vars
 *.tfvars
+*.zip
+.terraform
+.terraform.lock.hcl
