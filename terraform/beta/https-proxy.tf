@@ -6,8 +6,9 @@ module "https-proxy" {
   client_space  = var.cf_space_name
   instances     = var.https_proxy_instances
 
+  # Keys are the name of the app! Now I get it! :)
   allowlist = {
-    clubfed_deps = [
+    clubfed-beta = [
       "api.weather.gov:443",
     ],
   }

@@ -1,0 +1,3 @@
+env: beta
+web_instances: 1
+web_memory: 256M
