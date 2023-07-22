@@ -1,4 +1,10 @@
+# THIS IS A DEMO PROJECT
+
+Don't use this for anything!
+
 # Clubfed
+
+
 ========================
 
 <<TKTK: quick summary of project>>
